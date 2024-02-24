@@ -10,14 +10,14 @@ module "ipv4" {
   vpc_id = module.vpc.vpc_id
 
   public_subnets = {
-    public-a = {
+    az-a = {
       az   = "ap-northeast-2a",
       cidr = "192.168.0.0/24"
     }
   }
 
   private_subnets = {
-    private-a = {
+    az-a = {
       az   = "ap-northeast-2a",
       cidr = "192.168.1.0/24"
     }

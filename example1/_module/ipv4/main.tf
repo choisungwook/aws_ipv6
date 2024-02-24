@@ -32,6 +32,8 @@ resource "aws_internet_gateway" "main" {
 }
 
 resource "aws_eip" "nat_gateway" {
+  for_each = var.public_subnets
+
   domain = "vpc"
 
   lifecycle {
@@ -39,16 +41,18 @@ resource "aws_eip" "nat_gateway" {
   }
 
   tags = {
-    Name = "${var.tag_prefix}"
+    Name = "${var.tag_prefix}-${each.key}"
   }
 }
 
 resource "aws_nat_gateway" "main" {
-  allocation_id = aws_eip.nat_gateway.id
-  subnet_id     = aws_subnet.public["public-a"].id
+  for_each = var.public_subnets
+
+  allocation_id = aws_eip.nat_gateway[each.key].id
+  subnet_id     = aws_subnet.public[each.key].id
 
   tags = {
-    Name = "${var.tag_prefix}"
+    Name = "${var.tag_prefix}-${each.key}"
   }
 }
 
@@ -66,15 +70,17 @@ resource "aws_route_table" "public" {
 }
 
 resource "aws_route_table" "private" {
+  for_each = var.public_subnets
+
   vpc_id = var.vpc_id
 
   route {
     cidr_block = "0.0.0.0/0"
-    gateway_id = aws_nat_gateway.main.id
+    gateway_id = aws_nat_gateway.main[each.key].id
   }
 
   tags = {
-    Name = "${var.tag_prefix}-private"
+    Name = "${var.tag_prefix}-private-${each.key}"
   }
 }
 
@@ -89,5 +95,5 @@ resource "aws_route_table_association" "private" {
   for_each = aws_subnet.private
 
   subnet_id      = each.value["id"]
-  route_table_id = aws_route_table.private.id
+  route_table_id = aws_route_table.private[each.key].id
 }
