@@ -29,6 +29,34 @@ module "ipv4" {
   ]
 }
 
+module "ipv6" {
+  source = "./_module/ipv6"
+
+  tag_prefix    = "Example1-ipv6"
+  vpc_id        = module.vpc.vpc_id
+  vpc_ipv6_cidr = module.vpc.vpc_ipv6_cidr
+
+  public_subnets = {
+    "1" = {
+      az                 = "ap-northeast-2a",
+      ipv4_cidr          = "192.168.2.0/24"
+      ipv6_subnet_netnum = 1
+    }
+  }
+
+  private_subnets = {
+    "1" = {
+      az                 = "ap-northeast-2a",
+      ipv4_cidr          = "192.168.3.0/24"
+      ipv6_subnet_netnum = 2
+    }
+  }
+
+  depends_on = [
+    module.vpc
+  ]
+}
+
 module "ipv4_private_nginx" {
   source = "./_module/nginx_ec2"
 

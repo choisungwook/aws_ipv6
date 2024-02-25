@@ -1,7 +1,7 @@
 variable "tag_prefix" {
   description = "tag prefix"
   type        = string
-  default     = "Example1-ipv4"
+  default     = "Example1-ipv6"
 }
 
 variable "vpc_id" {
@@ -9,18 +9,25 @@ variable "vpc_id" {
   type        = string
 }
 
+variable "vpc_ipv6_cidr" {
+  description = "vpc ipv6 cidr"
+  type        = string
+}
+
 variable "public_subnets" {
   description = "public subnets"
   type = map(object({
-    az   = string
-    cidr = string
+    az                 = string
+    ipv4_cidr          = string
+    ipv6_subnet_netnum = number
   }))
 }
 
 variable "private_subnets" {
   description = "private subnets"
   type = map(object({
-    az   = string
-    cidr = string
+    az                 = string
+    ipv4_cidr          = string
+    ipv6_subnet_netnum = number
   }))
 }
