@@ -1,10 +1,10 @@
 resource "aws_iam_instance_profile" "ssm" {
-  name = "terraform-test-ssm-instanceprofile"
+  name = "${var.tag_prefix}-instanceprofile"
   role = aws_iam_role.ssm.name
 }
 
 resource "aws_iam_role" "ssm" {
-  name               = "terraform-test-ssm-iamrole"
+  name               = "${var.tag_prefix}-iamrole"
   assume_role_policy = data.aws_iam_policy_document.ec2_assume_role.json
 }
 
