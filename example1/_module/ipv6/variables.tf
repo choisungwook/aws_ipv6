@@ -31,3 +31,8 @@ variable "private_subnets" {
     ipv6_subnet_netnum = number
   }))
 }
+
+variable "internet_gateway_id" {
+  description = "internet gateway id"
+  type        = string
+}

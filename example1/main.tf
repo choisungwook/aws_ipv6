@@ -32,9 +32,10 @@ module "ipv4" {
 module "ipv6" {
   source = "./_module/ipv6"
 
-  tag_prefix    = "Example1-ipv6"
-  vpc_id        = module.vpc.vpc_id
-  vpc_ipv6_cidr = module.vpc.vpc_ipv6_cidr
+  tag_prefix          = "Example1-ipv6"
+  vpc_id              = module.vpc.vpc_id
+  vpc_ipv6_cidr       = module.vpc.vpc_ipv6_cidr
+  internet_gateway_id = module.ipv4.internet_gateway_id
 
   public_subnets = {
     "1" = {
@@ -57,11 +58,11 @@ module "ipv6" {
   ]
 }
 
-module "ipv4_private_nginx" {
+module "ipv4_public_nginx" {
   source = "./_module/nginx_ec2"
 
-  tag_prefix = "Example1-ipv4-private"
-  subnet_id  = module.ipv4.private_subnets["1"]
+  tag_prefix = "Example1-ipv4-public"
+  subnet_id  = module.ipv4.public_subnets["1"]
   vpc_id     = module.vpc.vpc_id
 
   depends_on = [
@@ -69,14 +70,38 @@ module "ipv4_private_nginx" {
   ]
 }
 
-module "ipv6_private_nginx" {
+module "ipv6_public_nginx" {
   source = "./_module/nginx_ec2"
 
-  tag_prefix = "Example1-ipv6-private"
-  subnet_id  = module.ipv6.private_subnets["1"]
+  tag_prefix = "Example1-ipv6-public"
+  subnet_id  = module.ipv6.public_subnets["1"]
   vpc_id     = module.vpc.vpc_id
 
   depends_on = [
     module.ipv6
   ]
 }
+
+# module "ipv4_private_nginx" {
+#   source = "./_module/nginx_ec2"
+
+#   tag_prefix = "Example1-ipv4-private"
+#   subnet_id  = module.ipv4.private_subnets["1"]
+#   vpc_id     = module.vpc.vpc_id
+
+#   depends_on = [
+#     module.ipv4
+#   ]
+# }
+
+# module "ipv6_private_nginx" {
+#   source = "./_module/nginx_ec2"
+
+#   tag_prefix = "Example1-ipv6-private"
+#   subnet_id  = module.ipv6.private_subnets["1"]
+#   vpc_id     = module.vpc.vpc_id
+
+#   depends_on = [
+#     module.ipv6
+#   ]
+# }
