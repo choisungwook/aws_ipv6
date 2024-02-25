@@ -13,3 +13,9 @@ variable "subnet_id" {
   description = "subnets id"
   type        = string
 }
+
+variable "ec2_key_name" {
+  description = "ec2 key name"
+  type        = string
+  default     = null
+}

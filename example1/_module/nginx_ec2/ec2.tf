@@ -5,6 +5,7 @@ resource "aws_instance" "nginx" {
   vpc_security_group_ids = [aws_security_group.nginx.id]
   iam_instance_profile   = aws_iam_instance_profile.ssm.name
   user_data              = file("${path.module}/userdata.sh")
+  key_name               = var.ec2_key_name != null ? var.ec2_key_name : null
 
   tags = {
     Name = "${var.tag_prefix}-nginx"

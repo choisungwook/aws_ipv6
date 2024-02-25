@@ -73,9 +73,10 @@ module "ipv4_public_nginx" {
 module "ipv6_public_nginx" {
   source = "./_module/nginx_ec2"
 
-  tag_prefix = "Example1-ipv6-public"
-  subnet_id  = module.ipv6.public_subnets["1"]
-  vpc_id     = module.vpc.vpc_id
+  tag_prefix   = "Example1-ipv6-public"
+  subnet_id    = module.ipv6.public_subnets["1"]
+  vpc_id       = module.vpc.vpc_id
+  ec2_key_name = var.ipv6_ec2_key_name
 
   depends_on = [
     module.ipv6
