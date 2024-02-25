@@ -29,10 +29,10 @@ module "ipv4" {
   ]
 }
 
-module "ipv6" {
+module "ipv6_dualstack" {
   source = "./_module/ipv6"
 
-  tag_prefix          = "Example1-ipv6"
+  tag_prefix          = "Example1-ipv6-dualstack"
   vpc_id              = module.vpc.vpc_id
   vpc_ipv6_cidr       = module.vpc.vpc_ipv6_cidr
   internet_gateway_id = module.ipv4.internet_gateway_id
@@ -59,7 +59,7 @@ module "ipv6" {
 }
 
 module "ipv4_public_nginx" {
-  source = "./_module/nginx_ec2"
+  source = "./_module/dualstack_nginx_ec2"
 
   tag_prefix = "Example1-ipv4-public"
   subnet_id  = module.ipv4.public_subnets["1"]
@@ -70,17 +70,17 @@ module "ipv4_public_nginx" {
   ]
 }
 
-module "ipv6_public_nginx" {
-  source = "./_module/nginx_ec2"
+module "ipv6_dualstack__public_nginx" {
+  source = "./_module/dualstack_nginx_ec2"
 
-  tag_prefix   = "Example1-ipv6-public"
+  tag_prefix   = "Example1-ipv6-dualstack--public"
   ipv6_enabled = true
-  subnet_id    = module.ipv6.public_subnets["1"]
+  subnet_id    = module.ipv6_dualstack.public_subnets["1"]
   vpc_id       = module.vpc.vpc_id
-  ec2_key_name = var.ipv6_ec2_key_name
+  ec2_key_name = var.ipv6_dualstack_ec2_key_name
 
   depends_on = [
-    module.ipv6
+    module.ipv6_dualstack
   ]
 }
 
