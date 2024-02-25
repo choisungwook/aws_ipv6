@@ -68,3 +68,15 @@ module "ipv4_private_nginx" {
     module.ipv4
   ]
 }
+
+module "ipv6_private_nginx" {
+  source = "./_module/nginx_ec2"
+
+  tag_prefix = "Example1-ipv6-private"
+  subnet_id  = module.ipv6.private_subnets["1"]
+  vpc_id     = module.vpc.vpc_id
+
+  depends_on = [
+    module.ipv6
+  ]
+}
