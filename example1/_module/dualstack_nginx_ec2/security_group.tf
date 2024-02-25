@@ -21,8 +21,8 @@ resource "aws_security_group" "nginx-ipv4" {
 
   ingress {
     description = "icmp"
-    from_port   = 0
-    to_port     = 0
+    from_port   = -1
+    to_port     = -1
     protocol    = "icmp"
     cidr_blocks = ["0.0.0.0/0"]
   }
@@ -61,10 +61,10 @@ resource "aws_security_group" "nginx-ipv6" {
   }
 
   ingress {
-    description      = "icmp"
-    from_port        = 0
-    to_port          = 0
-    protocol         = "icmp"
+    description      = "icmpv6"
+    from_port        = -1
+    to_port          = -1
+    protocol         = "icmpv6"
     ipv6_cidr_blocks = ["::/0"]
   }
 
