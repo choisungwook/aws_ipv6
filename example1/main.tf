@@ -32,9 +32,9 @@ module "ipv4" {
 module "ipv4_private_nginx" {
   source = "./_module/nginx_ec2"
 
+  tag_prefix = "Example1-ipv4-private"
   subnet_id  = module.ipv4.private_subnets["az-a"]
   vpc_id     = module.vpc.vpc_id
-  tag_prefix = "Example1-ipv4-private"
 
   depends_on = [
     module.ipv4
