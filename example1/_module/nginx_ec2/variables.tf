@@ -19,3 +19,9 @@ variable "ec2_key_name" {
   type        = string
   default     = null
 }
+
+variable "ipv6_enabled" {
+  description = "ipv6 enabled"
+  type        = bool
+  default     = false
+}

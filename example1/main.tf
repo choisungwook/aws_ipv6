@@ -74,6 +74,7 @@ module "ipv6_public_nginx" {
   source = "./_module/nginx_ec2"
 
   tag_prefix   = "Example1-ipv6-public"
+  ipv6_enabled = true
   subnet_id    = module.ipv6.public_subnets["1"]
   vpc_id       = module.vpc.vpc_id
   ec2_key_name = var.ipv6_ec2_key_name
