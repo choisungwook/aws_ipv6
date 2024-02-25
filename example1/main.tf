@@ -11,14 +11,14 @@ module "ipv4" {
   vpc_id     = module.vpc.vpc_id
 
   public_subnets = {
-    az-a = {
+    "1" = {
       az   = "ap-northeast-2a",
       cidr = "192.168.0.0/24"
     }
   }
 
   private_subnets = {
-    az-a = {
+    "1" = {
       az   = "ap-northeast-2a",
       cidr = "192.168.1.0/24"
     }
@@ -33,7 +33,7 @@ module "ipv4_private_nginx" {
   source = "./_module/nginx_ec2"
 
   tag_prefix = "Example1-ipv4-private"
-  subnet_id  = module.ipv4.private_subnets["az-a"]
+  subnet_id  = module.ipv4.private_subnets["1"]
   vpc_id     = module.vpc.vpc_id
 
   depends_on = [
