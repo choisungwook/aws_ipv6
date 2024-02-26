@@ -1,11 +1,11 @@
 module "vpc" {
-  source = "./_module/vpc"
+  source = "../_module/vpc"
 
   vpc_cidr = "192.168.0.0/16"
 }
 
 module "ipv4" {
-  source = "./_module/ipv4"
+  source = "../_module/ipv4"
 
   tag_prefix = "Example1-ipv4"
   vpc_id     = module.vpc.vpc_id
@@ -30,7 +30,7 @@ module "ipv4" {
 }
 
 module "ipv6_dualstack" {
-  source = "./_module/ipv6_dualstack"
+  source = "../_module/ipv6_dualstack"
 
   tag_prefix          = "Example1-ipv6-dualstack"
   vpc_id              = module.vpc.vpc_id
@@ -59,7 +59,7 @@ module "ipv6_dualstack" {
 }
 
 module "ipv4_public_nginx" {
-  source = "./_module/dualstack_nginx_ec2"
+  source = "../_module/dualstack_nginx_ec2"
 
   tag_prefix = "Example1-ipv4-public"
   subnet_id  = module.ipv4.public_subnets["1"]
@@ -71,7 +71,7 @@ module "ipv4_public_nginx" {
 }
 
 module "ipv6_dualstack__public_nginx" {
-  source = "./_module/dualstack_nginx_ec2"
+  source = "../_module/dualstack_nginx_ec2"
 
   tag_prefix   = "Example1-ipv6-dualstack--public"
   ipv6_enabled = true
