@@ -36,6 +36,7 @@ module "ipv6_dualstack" {
   vpc_id              = module.vpc.vpc_id
   vpc_ipv6_cidr       = module.vpc.vpc_ipv6_cidr
   internet_gateway_id = module.ipv4.internet_gateway_id
+  nat_gateway_ids     = module.ipv4.nat_gateway_ids
 
   public_subnets = {
     "1" = {

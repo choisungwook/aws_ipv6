@@ -13,3 +13,9 @@ output "public_subnets" {
 output "internet_gateway_id" {
   value = aws_internet_gateway.main.id
 }
+
+output "nat_gateway_ids" {
+  value = {
+    for k, v in aws_nat_gateway.main : k => v.id
+  }
+}
