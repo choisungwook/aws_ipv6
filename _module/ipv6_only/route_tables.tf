@@ -35,13 +35,13 @@ resource "aws_route" "public_ipv6_internet_gateway" {
   gateway_id                  = var.internet_gateway_id
 }
 
-# resource "aws_route" "private_nat_gateway" {
-#   for_each = var.private_subnets
+resource "aws_route" "private_egress_only_gateway" {
+  for_each = var.private_subnets
 
-#   route_table_id         = aws_route_table.private[each.key].id
-#   destination_cidr_block = "0.0.0.0/0"
-#   nat_gateway_id         = aws_nat_gateway.main[each.key].id
-# }
+  route_table_id              = aws_route_table.private[each.key].id
+  destination_ipv6_cidr_block = "::/0"
+  egress_only_gateway_id      = aws_egress_only_internet_gateway.this.id
+}
 
 resource "aws_route_table_association" "public" {
   for_each = aws_subnet.public
