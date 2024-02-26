@@ -6,6 +6,8 @@
 
 # 배포 방법
 
+![img](./imgs/arch.png)
+
 1. terraform.tfvars파일에서 변수 설정
 
 2. terraform apply

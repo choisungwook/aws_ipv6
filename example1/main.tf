@@ -30,7 +30,7 @@ module "ipv4" {
 }
 
 module "ipv6_dualstack" {
-  source = "./_module/ipv6"
+  source = "./_module/ipv6_dualstack"
 
   tag_prefix          = "Example1-ipv6-dualstack"
   vpc_id              = module.vpc.vpc_id
@@ -83,27 +83,3 @@ module "ipv6_dualstack__public_nginx" {
     module.ipv6_dualstack
   ]
 }
-
-# module "ipv4_private_nginx" {
-#   source = "./_module/nginx_ec2"
-
-#   tag_prefix = "Example1-ipv4-private"
-#   subnet_id  = module.ipv4.private_subnets["1"]
-#   vpc_id     = module.vpc.vpc_id
-
-#   depends_on = [
-#     module.ipv4
-#   ]
-# }
-
-# module "ipv6_private_nginx" {
-#   source = "./_module/nginx_ec2"
-
-#   tag_prefix = "Example1-ipv6-private"
-#   subnet_id  = module.ipv6.private_subnets["1"]
-#   vpc_id     = module.vpc.vpc_id
-
-#   depends_on = [
-#     module.ipv6
-#   ]
-# }
