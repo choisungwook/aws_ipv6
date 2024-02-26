@@ -18,7 +18,6 @@ variable "public_subnets" {
   description = "public subnets"
   type = map(object({
     az                 = string
-    ipv4_cidr          = string
     ipv6_subnet_netnum = number
   }))
 }
@@ -27,12 +26,6 @@ variable "private_subnets" {
   description = "private subnets"
   type = map(object({
     az                 = string
-    ipv4_cidr          = string
     ipv6_subnet_netnum = number
   }))
-}
-
-variable "internet_gateway_id" {
-  description = "internet gateway id"
-  type        = string
 }
