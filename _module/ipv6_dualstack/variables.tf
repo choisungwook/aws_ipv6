@@ -36,3 +36,8 @@ variable "internet_gateway_id" {
   description = "internet gateway id"
   type        = string
 }
+
+variable "nat_gateway_ids" {
+  description = "nat gateway ids"
+  type        = map(string)
+}
