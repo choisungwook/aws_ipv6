@@ -1,7 +1,7 @@
 variable "tag_prefix" {
   description = "tag prefix"
   type        = string
-  default     = "Example1"
+  default     = "Example1-ipv6only"
 }
 
 variable "vpc_id" {
@@ -18,10 +18,4 @@ variable "ec2_key_name" {
   description = "ec2 key name"
   type        = string
   default     = null
-}
-
-variable "ipv6_enabled" {
-  description = "ipv6 enabled"
-  type        = bool
-  default     = false
 }
