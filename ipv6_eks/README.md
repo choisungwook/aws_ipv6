@@ -34,8 +34,23 @@ terraform init
 terraform apply
 ```
 
+3. kubeconfig 생성
+
+```bash
+# kubeconfig 생성
+aws eks update-kubeconfig --region ap-northeast-2 --name ipv6-eks-createby-terraform
+
+# cluster 확인
+kubectl cluster-info
+```
+
 # 삭제 방법
 
 ```sh
 terraform destroy
 ```
+
+# 참고자료
+* [terraform aws eks module](https://github.com/terraform-aws-modules/terraform-aws-vpc/blob/v5.5.2/examples/ipv6-only/main.tf)
+* [terraform eks blueprint][https://github.com/aws-ia/terraform-aws-eks-blueprints/tree/main/patterns/ipv6-eks-cluster]
+* [aws docs VPC CNI](https://docs.aws.amazon.com/eks/latest/userguide/cni-iam-role.html#cni-iam-role-create-ipv6-policy)
