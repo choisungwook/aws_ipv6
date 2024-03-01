@@ -89,6 +89,14 @@ resource "aws_iam_openid_connect_provider" "main" {
 # https://docs.aws.amazon.com/eks/latest/userguide/cni-iam-role.html#cni-iam-role-create-ipv6-policy
 ################################################################################
 
+# Note - we are keeping this to a minimum in hopes that its soon replaced with an AWS managed policy like `AmazonEKS_CNI_Policy`
+resource "aws_iam_policy" "cni_ipv6_policy" {
+  # Will cause conflicts if trying to create on multiple clusters but necessary to reference by exact name in sub-modules
+  name        = "AmazonEKS_CNI_IPv6_Policy"
+  description = "IAM policy for EKS CNI to assign IPV6 addresses"
+  policy      = data.aws_iam_policy_document.cni_ipv6_policy.json
+}
+
 data "aws_iam_policy_document" "cni_ipv6_policy" {
   statement {
     sid = "AssignDescribe"
@@ -109,10 +117,7 @@ data "aws_iam_policy_document" "cni_ipv6_policy" {
   }
 }
 
-# Note - we are keeping this to a minimum in hopes that its soon replaced with an AWS managed policy like `AmazonEKS_CNI_Policy`
-resource "aws_iam_policy" "cni_ipv6_policy" {
-  # Will cause conflicts if trying to create on multiple clusters but necessary to reference by exact name in sub-modules
-  name        = "AmazonEKS_CNI_IPv6_Policy"
-  description = "IAM policy for EKS CNI to assign IPV6 addresses"
-  policy      = data.aws_iam_policy_document.cni_ipv6_policy.json
+resource "aws_iam_role_policy_attachment" "cni_ipv6_policy" {
+  policy_arn = aws_iam_policy.cni_ipv6_policy.arn
+  role       = aws_iam_role.node_group_role.id
 }
