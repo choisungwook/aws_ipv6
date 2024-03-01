@@ -32,9 +32,8 @@ resource "aws_eks_node_group" "main" {
     ]
   }
 
-  tags = merge(
-    {
-      Name = "${var.eks_cluster_name}-managed-node-group"
-    }
-  )
+  # not worked
+  tags = {
+    Name = "${var.eks_cluster_name}-${each.key}"
+  }
 }
