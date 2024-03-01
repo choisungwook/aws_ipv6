@@ -71,10 +71,10 @@ module "ipv4_public_nginx" {
   ]
 }
 
-module "ipv6_dualstack_public_nginx" {
+module "ipv6_dualstack__public_nginx" {
   source = "../_module/dualstack_nginx_ec2"
 
-  tag_prefix   = "Example1-ipv6-dualstack-public"
+  tag_prefix   = "Example1-ipv6-dualstack--public"
   ipv6_enabled = true
   subnet_id    = module.ipv6_dualstack.public_subnets["1"]
   vpc_id       = module.vpc.vpc_id
