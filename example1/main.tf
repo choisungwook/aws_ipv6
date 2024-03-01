@@ -5,7 +5,7 @@ module "vpc" {
 }
 
 module "ipv4" {
-  source = "../_module/ipv4"
+  source = "../_module/ipv4_subnet"
 
   tag_prefix = "Example1-ipv4"
   vpc_id     = module.vpc.vpc_id

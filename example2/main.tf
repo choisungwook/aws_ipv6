@@ -24,10 +24,6 @@ module "ipv6_only" {
       cidr = "192.168.1.0/24"
     }
   }
-
-  depends_on = [
-    module.vpc
-  ]
 }
 
 module "ipv6_only_public_nginx" {
