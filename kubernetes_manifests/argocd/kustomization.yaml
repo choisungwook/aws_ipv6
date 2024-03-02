@@ -5,3 +5,10 @@ namespace: argocd
 resources:
 - ./namespace.yaml
 - https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/ha/install.yaml
+
+patches:
+# # change redis-ha bind address from IPv4 to IPv6
+- path: pathces/argocd-redis-ha-configmap-patch.yaml
+  target:
+    kind: ConfigMap
+    name: argocd-redis-ha-configmap
