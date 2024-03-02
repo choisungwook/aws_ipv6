@@ -2,8 +2,9 @@
 module "ipv6_vpc_dualstack" {
   source = "./_module/eks_ipv6_vpc"
 
-  tag_prefix = "EKS-ipv6-dualstack"
-  vpc_cidr   = "192.168.0.0/16"
+  tag_prefix       = "EKS-ipv6-dualstack"
+  eks_cluster_name = var.eks_cluster_name
+  vpc_cidr         = "192.168.0.0/16"
 
   public_subnets = {
     "1" = {
