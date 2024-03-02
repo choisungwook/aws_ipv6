@@ -70,17 +70,11 @@ variable "eks_addons" {
   default = []
 }
 
-# variable "eks_addons_timeouts" {
-#   description = "Create, update, and delete timeout configurations for the cluster addons"
-#   type        = map(string)
-#   default     = {}
-# }
-
-# variable "karpenter_enabled" {
-#   description = "karpenter enabled"
-#   type        = bool
-#   default     = false
-# }
+variable "karpenter_enabled" {
+  description = "karpenter enabled"
+  type        = bool
+  default     = false
+}
 
 # variable "alb_controller_enabled" {
 #   description = "alb controller enabled"

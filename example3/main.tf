@@ -74,9 +74,10 @@ module "ipv6_only" {
 module "ipv6_only_public_httpserver" {
   source = "../_module/ipv6_only_http_server"
 
-  tag_prefix = "Example3-ipv6-public-httpserver"
-  vpc_id     = module.ipv6_only.vpc_id
-  subnet_id  = module.ipv6_only.public_subnets_ipv6["1"]
+  tag_prefix   = "Example3-ipv6-public-httpserver"
+  vpc_id       = module.ipv6_only.vpc_id
+  subnet_id    = module.ipv6_only.public_subnets_ipv6["1"]
+  ec2_key_name = "ipv6-test"
 
   depends_on = [
     module.ipv6_only

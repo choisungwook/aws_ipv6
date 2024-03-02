@@ -55,3 +55,4 @@ terraform destroy
 * [terraform eks blueprint][https://github.com/aws-ia/terraform-aws-eks-blueprints/tree/main/patterns/ipv6-eks-cluster]
 * [aws docs VPC CNI](https://docs.aws.amazon.com/eks/latest/userguide/cni-iam-role.html#cni-iam-role-create-ipv6-policy)
 * https://youtu.be/_yH-WYCsZkY?si=KJtIK2cX2A3qgybO
+* https://aws.amazon.com/ko/blogs/containers/amazon-eks-launches-ipv6-support/
