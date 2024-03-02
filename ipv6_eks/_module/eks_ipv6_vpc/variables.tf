@@ -4,6 +4,11 @@ variable "tag_prefix" {
   default     = "EKS-ipv6"
 }
 
+variable "eks_cluster_name" {
+  description = "eks cluster name"
+  type        = string
+}
+
 variable "vpc_cidr" {
   description = "vpc cidr"
   type        = string
