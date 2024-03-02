@@ -1,6 +1,5 @@
 # 개요
 * kustomize로 argocd 설치
-* argocd-server는 nodeport(30950, 30951)로 설정
 
 <br />
 
@@ -13,7 +12,6 @@ kubectl kustomize ./ | kubectl apply -f -
 <br />
 
 # argocd-server 접속 방법
-* 웹 브라우저에서 https://localhost:30951로 접속
 
 <br />
 
