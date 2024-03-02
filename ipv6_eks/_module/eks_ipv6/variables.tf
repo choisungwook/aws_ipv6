@@ -82,11 +82,11 @@ variable "alb_controller_enabled" {
   default     = false
 }
 
-# variable "external_dns_enabled" {
-#   description = "external_dns_enabled enabled"
-#   type        = bool
-#   default     = false
-# }
+variable "external_dns_enabled" {
+  description = "external_dns_enabled enabled"
+  type        = bool
+  default     = false
+}
 
 ################################################################################
 # EKS IPV6 CNI Policy
