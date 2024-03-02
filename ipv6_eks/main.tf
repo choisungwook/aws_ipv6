@@ -75,13 +75,13 @@ module "eks" {
       capacity_type   = "SPOT",
       release_version = "" #latest
       disk_size       = 20
-      desired_size    = 2,
-      max_size        = 2,
-      min_size        = 2
+      desired_size    = 3,
+      max_size        = 3,
+      min_size        = 3
     }
   }
 
-  // irsa role 생성 여부
+  // IRSA IAM role 생성 여부
   karpenter_enabled      = true
   alb_controller_enabled = true
   external_dns_enabled   = true
