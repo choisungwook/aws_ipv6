@@ -65,7 +65,7 @@ resource "aws_route" "private_ipv4_internet_gateway" {
 
   route_table_id         = aws_route_table.private[each.key].id
   destination_cidr_block = "0.0.0.0/0"
-  gateway_id             = aws_nat_gateway.public[each.key].id
+  nat_gateway_id         = aws_nat_gateway.public[each.key].id
 }
 
 resource "aws_route" "private_ipv6_egress_only_gateway" {
