@@ -54,5 +54,6 @@ terraform destroy
 * [terraform aws eks module](https://github.com/terraform-aws-modules/terraform-aws-vpc/blob/v5.5.2/examples/ipv6-only/main.tf)
 * [terraform eks blueprint][https://github.com/aws-ia/terraform-aws-eks-blueprints/tree/main/patterns/ipv6-eks-cluster]
 * [aws docs VPC CNI](https://docs.aws.amazon.com/eks/latest/userguide/cni-iam-role.html#cni-iam-role-create-ipv6-policy)
+* [ALB controller ipv6 기능 출시](https://aws.amazon.com/ko/about-aws/whats-new/2021/10/aws-load-balancer-2-3-alb-ipv6-targets/)
 * https://youtu.be/_yH-WYCsZkY?si=KJtIK2cX2A3qgybO
 * https://aws.amazon.com/ko/blogs/containers/amazon-eks-launches-ipv6-support/
