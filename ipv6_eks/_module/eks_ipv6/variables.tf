@@ -76,11 +76,11 @@ variable "karpenter_enabled" {
   default     = false
 }
 
-# variable "alb_controller_enabled" {
-#   description = "alb controller enabled"
-#   type        = bool
-#   default     = false
-# }
+variable "alb_controller_enabled" {
+  description = "ALB controller enabled"
+  type        = bool
+  default     = false
+}
 
 # variable "external_dns_enabled" {
 #   description = "external_dns_enabled enabled"
