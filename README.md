@@ -7,6 +7,8 @@
 * [aws ipv6 EKS](./ipv6_eks/)
 * [aws ipv4, ipv6 http server](./example3/)
 * [python ipv4, ipv6 http server](./python_http_sevrer/)
+* [kubernetes manifest](./kubernetes_manifests/)
+* [terraform 공통 커스텀 모듈](./_module/)
 
 # 참고자료
 * https://colinbarker.me.uk/blog/2023-02-11-enabling-ipv6-on-aws-using-terraform/
