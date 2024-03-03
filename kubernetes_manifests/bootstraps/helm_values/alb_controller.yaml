@@ -1,4 +1,4 @@
-clusterName: eks-from-terraform
+clusterName: ipv6-eks-createby-terraform
 
 serviceAccount:
   name: alb-controller-irsa-sa
