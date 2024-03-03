@@ -3,6 +3,7 @@
 - [개요](#개요)
 - [VPC CNI pod IP 할당 실패](#vpc-cni-pod-ip-할당-실패)
 - [ArgoCD Redis HA설정에 IPv6 설정이 안되어 있어 발생하는 장애](#argocd-redis-ha설정에-ipv6-설정이-안되어-있어-발생하는-장애)
+- [ArgoCD Redis HA Proxy 설정에 IPv6 설정이 안되어 있어 발생하는 장애](#argocd-redis-ha-proxy-설정에-ipv6-설정이-안되어-있어-발생하는-장애)
 
 <!-- /TOC -->
 
@@ -26,4 +27,16 @@
 
 > 참고자료: https://github.com/DandyDeveloper/charts/pull/186
 
-![](./imgs/troubleshooting/./argocd_redis_ha_server.png)
+![](./imgs/troubleshooting/argocd_redis_ha_server.png)
+
+# ArgoCD Redis HA Proxy 설정에 IPv6 설정이 안되어 있어 발생하는 장애
+
+> 참고자료: https://github.com/argoproj/argo-cd/blob/master/manifests/ha/base/redis-ha/chart/values.yaml#L11
+
+![](./imgs/troubleshooting/argocd_redis_ha_proxy_1.png)
+
+![](./imgs/troubleshooting/argocd_redis_ha_proxy_2.png)
+
+![](./imgs/troubleshooting/argocd_redis_ha_proxy_3.png)
+
+![](./imgs/troubleshooting/argocd_redis_ha_proxy_4.png)
