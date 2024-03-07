@@ -26,8 +26,7 @@ resource "aws_subnet" "private" {
   availability_zone = each.value["az"]
 
   // IPv4
-  cidr_block              = each.value["ipv4_cidr"]
-  map_public_ip_on_launch = true
+  cidr_block = each.value["ipv4_cidr"]
 
   // IPv6
   assign_ipv6_address_on_creation                = true
