@@ -4,6 +4,7 @@
 # 예제
 * [aws ipv4 -> ipv6 통신 안되는 문제를 해결](./example1/)
 * [aws ipv6 -> ipv4 통신을 위한 DNS64, NAT64 구성](./example2/)
+* [aws ipv6 internal ALB test](./example4/)
 * [aws ipv6 EKS](./ipv6_eks/)
 * [aws ipv4, ipv6 http server](./example3/)
 * [python ipv4, ipv6 http server](./python_http_sevrer/)
