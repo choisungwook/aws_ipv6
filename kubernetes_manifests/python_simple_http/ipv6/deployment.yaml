@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-http-ipv6
+  labels:
+    app: python-http-ipv6
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: python-http-ipv6
+  template:
+    metadata:
+      labels:
+        app: python-http-ipv6
+    spec:
+      containers:
+      - name: python-http-ipv6
+        image: choisunguk/python_simple_http_server:ipv6
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8000
+        livenessProbe:
+          httpGet:
+            path: /hello
+            port: 80
