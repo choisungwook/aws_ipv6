@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springboot-demo
+  labels:
+    app: springboot-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: springboot-demo
+  template:
+    metadata:
+      labels:
+        app: springboot-demo
+    spec:
+      containers:
+      - name: springboot-demo
+        image: choisunguk/springboot-helloworld:v2
+        ports:
+        - containerPort: 9991
+        env:
+        - name: JAVA_OPTS
+          value: "-XX:MaxRAMPercentage=75.0" # works!
+          # value: "-Djava.net.preferIPv6Addresses=true -XX:MaxRAMPercentage=75.0" # works!
+          # value: "-Djava.net.preferIPv6Addresses=false -XX:MaxRAMPercentage=75.0" # works!
+        resources:
+          requests:
+            cpu: "500m"
+            memory: "512Mi"
+          limits:
+            cpu: "500m"
+            memory: "512Mi"
+        livenessProbe:
+          httpGet:
+            path: /hello
+            port: 9991
+          initialDelaySeconds: 10
+          periodSeconds: 5
