@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-http-ipv4
+  labels:
+    app: python-http-ipv4
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: python-http-ipv4
+  template:
+    metadata:
+      labels:
+        app: python-http-ipv4
+    spec:
+      containers:
+      - name: python-http-ipv4
+        image: choisunguk/python_simple_http_server:ipv4
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8000
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 80
