@@ -57,9 +57,10 @@ module "eks" {
       configuration_values = jsonencode({})
     },
     {
-      name                 = "vpc-cni"
-      version              = var.addon_vpc_cni
-      configuration_values = jsonencode({})
+      name                     = "vpc-cni"
+      version                  = var.addon_vpc_cni
+      service_account_role_arn = var.vpc_cni_irsa_role_arn
+      configuration_values     = jsonencode({})
     },
     {
       name                 = "coredns"

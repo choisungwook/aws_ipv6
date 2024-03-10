@@ -26,3 +26,7 @@ variable "addon_coredns" {
   type    = string
   default = "v1.10.1-eksbuild.4"
 }
+
+variable "vpc_cni_irsa_role_arn" {
+  type = string
+}
