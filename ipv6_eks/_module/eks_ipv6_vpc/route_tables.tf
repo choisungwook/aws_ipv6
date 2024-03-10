@@ -48,12 +48,12 @@ resource "aws_route" "public_ipv4_internet_gateway" {
   gateway_id             = aws_internet_gateway.main.id
 }
 
-resource "aws_route" "public_ipv6_egress_only_gateway" {
+resource "aws_route" "public_ipv6_gateway" {
   for_each = var.public_subnets
 
   route_table_id              = aws_route_table.public[each.key].id
   destination_ipv6_cidr_block = "::/0"
-  egress_only_gateway_id      = aws_egress_only_internet_gateway.this.id
+  gateway_id                  = aws_internet_gateway.main.id
 }
 
 ################################################################################
