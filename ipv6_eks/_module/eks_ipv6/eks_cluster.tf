@@ -17,7 +17,6 @@ resource "aws_eks_cluster" "main" {
 
   depends_on = [
     aws_iam_policy_attachment.eks_cluster_policy,
-    aws_iam_policy_attachment.eks_cluster_vpc_controller,
-    aws_iam_role_policy_attachment.cni_ipv6_policy
+    aws_iam_policy_attachment.eks_cluster_vpc_controller
   ]
 }

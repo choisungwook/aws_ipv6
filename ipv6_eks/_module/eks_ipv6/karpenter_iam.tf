@@ -107,6 +107,8 @@ resource "aws_iam_role_policy_attachment" "eks_karpenter_cni_ipv6_policy" {
 
   role       = aws_iam_role.eks_karpenter_irsa[0].name
   policy_arn = aws_iam_policy.cni_ipv6_policy.arn
+
+  depends_on = [aws_iam_policy.cni_ipv6_policy]
 }
 
 ################################################################################
