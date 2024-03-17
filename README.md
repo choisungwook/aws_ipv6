@@ -1,17 +1,23 @@
 # 개요
-* AWS ipv6 예제
+* AWS IPv6 예제
 
 # 예제
-* [aws ipv4 -> ipv6 통신 안되는 문제를 해결](./example1/)
-* [aws ipv6 -> ipv4 통신을 위한 DNS64, NAT64 구성](./example2/)
-* [aws ipv6 internal ALB test](./example4/)
-* [aws ipv6 EKS](./ipv6_eks/)
-* [aws ipv4, ipv6 http server](./example3/)
-* [python ipv4, ipv6 http server](./python_http_sevrer/)
-* [kubernetes manifest](./kubernetes_manifests/)
+* [aws IPv4 -> IPv6 통신 안되는 문제를 해결](./example1/)
+* [aws IPv6 -> IPv4 통신을 위한 DNS64, NAT64 구성](./example2/)
+* [aws IPv6 internal ALB test](./example4/)
+* [aws IPv4, IPv6 http server](./example3/)
+* [IPv6 only and Python web server](./example5/)
+* [aws IPv6 EKS](./IPv6_eks/)
+
+# 기타 리소스
 * [terraform 공통 커스텀 모듈](./_module/)
+* [python IPv4, IPv6 http server](./python_http_sevrer/)
+* [kubernetes manifest](./kubernetes_manifests/)
 
 # 참고자료
 * https://colinbarker.me.uk/blog/2023-02-11-enabling-ipv6-on-aws-using-terraform/
 * https://youtu.be/VSjl3TDm_ME?si=S8olzPNecFS2TDo0
 * https://aws.amazon.com/ko/blogs/networking-and-content-delivery/dual-stack-architectures-for-aws-and-hybrid-networks-part-2/
+* [소켓 프로그래밍 IBM](https://www.ibm.com/docs/ko/i/7.3?topic=sscaaiic-example-accepting-connections-from-both-ipv6-ipv4-clients)
+* [소켓 프로그래밍 Microsoft](https://learn.microsoft.com/en-us/windows/win32/winsock/dual-stack-sockets)
+* [IPv6 TCP 소켓 프로그래밍](https://youtu.be/wiyZ7zhRzLM?si=DFBrmQKXW13X2CNv)
