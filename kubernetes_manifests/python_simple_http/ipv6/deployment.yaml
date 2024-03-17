@@ -23,4 +23,4 @@ spec:
         livenessProbe:
           httpGet:
             path: /hello
-            port: 80
+            port: 8000
