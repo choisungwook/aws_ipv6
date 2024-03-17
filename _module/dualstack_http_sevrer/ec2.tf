@@ -4,7 +4,7 @@ locals {
 
 resource "aws_instance" "http_server" {
   instance_type          = "t4g.medium"
-  ami                    = data.aws_ami.ubuntu.id
+  ami                    = "ami-0b56ebff00a0e5f22" # amazon linux3
   subnet_id              = var.subnet_id
   vpc_security_group_ids = local.security_group_ids
   iam_instance_profile   = aws_iam_instance_profile.ssm.name

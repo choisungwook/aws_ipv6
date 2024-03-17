@@ -1,6 +1,6 @@
 resource "aws_instance" "http-server" {
   instance_type          = "t4g.medium"
-  ami                    = "ami-0baf474c04c731d22" # or data.aws_ami.ubuntu.id
+  ami                    = "ami-0b56ebff00a0e5f22" # amazon linux3
   subnet_id              = var.subnet_id
   vpc_security_group_ids = [aws_security_group.httpserver-ipv6.id]
   iam_instance_profile   = aws_iam_instance_profile.ssm.name
