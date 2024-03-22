@@ -2,12 +2,13 @@
 * AWS IPv6 예제
 
 # 예제
-* [aws IPv4 -> IPv6 통신 안되는 문제를 해결](./example1/)
-* [aws IPv6 -> IPv4 통신을 위한 DNS64, NAT64 구성](./example2/)
-* [aws IPv6 internal ALB test](./example4/)
-* [aws IPv4, IPv6 http server](./example3/)
+* [IPv4 -> IPv6 통신 안되는 문제를 해결](./example1/)
+* [IPv6 -> IPv4 통신을 위한 DNS64, NAT64 구성](./example2/)
+* [IPv6 internal ALB test](./example4/)
+* [IPv4, IPv6 http server](./example3/)
+* [IPv6 EC2 instance -> IPv4 EC2 instance 통신 테스트](./example6/)]
 * [IPv6 only and Python web server](./example5/)
-* [aws IPv6 EKS](./IPv6_eks/)
+* [EKS IPv6](./IPv6_eks/)
 
 # 기타 리소스
 * [terraform 공통 커스텀 모듈](./_module/)
