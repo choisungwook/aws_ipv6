@@ -3,7 +3,7 @@ locals {
 }
 
 resource "aws_instance" "nginx" {
-  instance_type          = "t4g.nano"
+  instance_type          = "t4g.medium"
   ami                    = data.aws_ami.ubuntu.id
   subnet_id              = var.subnet_id
   vpc_security_group_ids = local.security_group_ids
