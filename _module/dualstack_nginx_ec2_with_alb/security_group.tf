@@ -61,59 +61,11 @@ resource "aws_security_group" "nginx-ipv6" {
   }
 
   ingress {
-    description     = "private alb"
-    from_port       = 0
-    to_port         = 0
-    protocol        = "tcp"
-    security_groups = [aws_security_group.private_alb.id]
-  }
-
-  ingress {
     description      = "icmpv6"
     from_port        = -1
     to_port          = -1
     protocol         = "icmpv6"
     ipv6_cidr_blocks = ["::/0"]
-  }
-
-  egress {
-    from_port        = 0
-    to_port          = 0
-    protocol         = "-1"
-    ipv6_cidr_blocks = ["::/0"]
-  }
-
-  lifecycle {
-    create_before_destroy = true
-  }
-}
-
-resource "aws_security_group" "private_alb" {
-  name        = "${var.tag_prefix}-private-alb"
-  description = "${var.tag_prefix}-private alb security group"
-  vpc_id      = var.vpc_id
-
-  ingress {
-    description = "http"
-    from_port   = 80
-    to_port     = 80
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  ingress {
-    description      = "http"
-    from_port        = 80
-    to_port          = 80
-    protocol         = "tcp"
-    ipv6_cidr_blocks = ["::/0"]
-  }
-
-  egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
   }
 
   egress {

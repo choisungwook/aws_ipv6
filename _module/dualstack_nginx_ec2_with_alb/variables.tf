@@ -20,6 +20,12 @@ variable "ec2_key_name" {
   default     = null
 }
 
+variable "internal" {
+  description = "alb type"
+  type        = bool
+  default     = true
+}
+
 variable "ipv6_enabled" {
   description = "ipv6 enabled"
   type        = bool
