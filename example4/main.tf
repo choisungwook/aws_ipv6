@@ -149,7 +149,7 @@ module "ipv6_dualstack_second" {
 module "ipv6_dualstack_public_nginx" {
   source = "../_module/dualstack_nginx_ec2"
 
-  tag_prefix   = "Example6-ipv6-dualstack-public"
+  tag_prefix   = "Example4-ipv6-dualstack-public"
   ipv6_enabled = true
   subnet_id    = module.ipv6_dualstack_second.public_subnets["1"]
   vpc_id       = module.vpc_second.vpc_id
