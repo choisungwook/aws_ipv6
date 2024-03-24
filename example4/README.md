@@ -1,5 +1,5 @@
 # 개요
-* ipv6 prviate ALB 예제
+* ipv6 prviate ALB(Happy Eyeballs) 예제
 
 ![](./imgs/arch.png)
 
